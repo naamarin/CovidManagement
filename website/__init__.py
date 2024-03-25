@@ -1,8 +1,9 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+import os
 
 db = SQLAlchemy()
-DB_NAME = "database.db"
+DB_NAME = os.getcwd() +"\database.db"
 
 def create_app():
     app = Flask(__name__) #Represent the name of the file that run
@@ -17,4 +18,9 @@ def create_app():
     app.register_blueprint(auth, url_prefix = '/') #Register the Blueprint auth
     #url_prefix = '/' meaning that the prefix off all the blueprints would be '/'
 
+    from .models import Member, Corona, Vaccination
+    
+    with app.app_context():
+        db.create_all()
+    
     return app

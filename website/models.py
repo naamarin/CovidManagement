@@ -6,12 +6,12 @@ class Vaccination(db.Model):
     vaccin_date = db.Column(db.DateTime)
     vaccin_number = db.Column(db.Integer)
     manufacturer = db.Column(db.String(150))
-    member_id = db.Column(db.Integer, db.ForeignKey('coronaDitails.member_id'))
+    member_id = db.Column(db.Integer, db.ForeignKey('corona.member_id'))
 
-class CoronaDitails(db.Model):
+class Corona(db.Model):
     positive_date = db.Column(db.String(10))
     recovery_date = db.Column(db.String(10))
-    member_id = db.Column(db.Integer, db.ForeignKey('member.id'))
+    member_id = db.Column(db.Integer, db.ForeignKey('member.id'), primary_key=True)
     vaccination = db.relationship('Vaccination')
 
 class Member(db.Model):
@@ -21,4 +21,4 @@ class Member(db.Model):
     date = db.Column(db.DateTime)
     phone = db.Column(db.Integer)
     mobile_phone = db.Column(db.Integer, unique=True)
-    coronaDitails = db.relationship('CoronaDitails')
+    corona = db.relationship('Corona', uselist=False)
