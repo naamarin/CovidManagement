@@ -18,7 +18,7 @@ class Member(db.Model):
     full_name = db.Column(db.String(150))
     id = db.Column(db.Integer, primary_key=True)
     address = db.Column(db.String(150))
-    date = db.Column(db.DateTime)
+    date = db.Column(db.String(15))
     phone = db.Column(db.Integer)
     mobile_phone = db.Column(db.Integer, unique=True)
     corona = db.relationship('Corona', uselist=False)

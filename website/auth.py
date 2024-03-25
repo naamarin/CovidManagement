@@ -1,4 +1,6 @@
-from flask import Blueprint, render_template, request, flash
+from flask import Blueprint, render_template, request, flash, redirect, url_for
+from .models import Member, Corona, Vaccination
+from . import db
 
 auth = Blueprint('auth', __name__) #Set up a Blueprint for our flask application
 
@@ -19,8 +21,12 @@ def addMember():
         elif len(id) == 0 or len(full_name) == 0 or len(address) == 0 or len(phone) == 0 or len(mobile_phone) == 0: #If one of the fields is empty
             flash('All fields must be filled', category='error')
         else:
+            new_member = Member(full_name=full_name, id=id, address=address, date=date, phone=phone, mobile_phone=mobile_phone)
+            db.session.add(new_member)
+            db.session.commit()
             flash('Successfully added HMO member',category='success')
-            #add user to the database
+            return redirect(url_for('views.members')) #Redirect the page to the member's page
+
 
     return render_template('add_member.html')
 
