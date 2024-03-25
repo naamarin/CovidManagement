@@ -13,8 +13,11 @@ def addMember():
         date = request.form.get('date')
         phone = request.form.get('phone')
         mobile_phone = request.form.get('mobile_phone')
-    
-        if ' ' not in full_name: #Checking if he entered at least two names (first name and last name)
+
+        member = Member.query.filter_by(id=id).first() 
+        if member: #If there is already a member with such an ID in the system
+            flash('Member already exists', category='error')
+        elif ' ' not in full_name: #Checking if he entered at least two names (first name and last name)
             flash('Must enter full name (first and last name)', category='error')
         elif len(id) != 9: 
             flash('ID number must consist of 9 digits', category='error')

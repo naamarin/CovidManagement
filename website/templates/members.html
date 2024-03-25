@@ -1,4 +1,43 @@
 {% extends "base.html" %}
 {% block title %}Members{% endblock %}
 
-{% block content %} <h1>This is the members page</h1> {% endblock %}
+
+
+{% block content %}
+<head>
+    <title>Members</title>
+</head>
+<body>
+    <h1>Members</h1>
+    <table class='table table-bordered table-condensed table-striped table-hover'>
+        <thead>
+            <tr>
+                <th>Full name</th>
+                <th>ID</th>
+                <th>Address</th>
+                <th>Birth date</th>
+                <th>Phone</th>
+                <th>Mobile phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for member in all_members %}
+            <tr ondblclick="redirectToCard()">
+                <td>{{ member.full_name }}</td>
+                <td>{{ member.id }}</td>
+                <td>{{ member.address }}</td>
+                <td>{{ member.date }}</td>
+                <td>{{ member.phone }}</td>
+                <td>{{ member.mobile_phone }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+<script>
+    function redirectToCard() {
+        window.location.href = '/card';
+    }
+</script>
+{% endblock %}
+
