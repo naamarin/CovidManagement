@@ -10,7 +10,7 @@
     <h2>Members
         <button onclick="redirectToAddMember()" type="submit" class="btn btn-primary float-right">Add member</button>
     </h2>
-    <table id="members_table" class='table table-bordered table-condensed table-striped table-hover'>
+    <table id="members_table" class='table table-bordered table-condensed table-striped table-hover' >
         <thead>
             <tr>
                 <th>Full name</th>
@@ -19,6 +19,7 @@
                 <th>Birth date</th>
                 <th>Phone</th>
                 <th>Mobile phone</th>
+                <th>Img</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -31,6 +32,7 @@
                 <td>{{ member.date }}</td>
                 <td>{{ member.phone }}</td>
                 <td>{{ member.mobile_phone }}</td>
+                <td><img src="{{member.img}}" alt="Image"/></td>
                 <td>
                 <button type="button" class="close" onclick="deleteMenber('{{member.id}}')">
                     <span aria-hidden="true">&times;</span>

@@ -19,5 +19,7 @@ class Member(db.Model):
     address = db.Column(db.String(150))
     date = db.Column(db.String(15))
     phone = db.Column(db.String(150))
+    img = db.Column(db.String(150))
     mobile_phone = db.Column(db.String(150), unique=True)
     corona = db.relationship('Corona', uselist=False)
+    

@@ -9,11 +9,16 @@ def create_app():
     app = Flask(__name__) #Represent the name of the file that run
     app.config['SECRET_KEY'] = 'FWRG769dbhj890@66' #Encrypt or secure the cookies and session deta related to our website
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}' #My SQLalchemy database is stored at this location
+    app.config['UPLOAD_FOLDER'] = 'C:/Users/Naama/Desktop/Corona management system for HMO/website/static/upload'
+
     db.init_app(app) #Initialize the database
 
+
     from .member import member #Import the Blueprint member
+    from .summary import summary
 
     app.register_blueprint(member, url_prefix = '/member') #Register the Blueprint member
+    #app.register_blueprint(summary, url_prefix = '/summary') #Register the Blueprint summary
     #url_prefix = '/' meaning that the prefix off all the blueprints would be '/'
 
     from .models import Member, Corona, Vaccination
