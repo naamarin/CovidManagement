@@ -1,2 +1,87 @@
 {% extends "base.html" %}
 {% block title %}Member card{% endblock %}
+
+{% block content %}
+
+<form method="POST">
+    <h3 align="center">Card member</h3>
+    <div class="form-group">
+        <label for="full_name">Full name</label>
+        <input type="text" class="form-control" id="full_name" name="full_name" value="{{member.full_name}}" />
+    </div>
+    <div class="form-group">
+        <label for="id">ID</label>
+        <input type="text" class="form-control" id="id" name="id" value="{{member.id}}" />
+    </div>
+    <div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" class="form-control" id="address" name="address" value="{{member.address}}" />
+    </div>
+    <div class="form-group">
+        <label for="date">Date of birth</label>
+        <input type="date" class="form-control" id="date" name="date" value="{{member.date}}" />
+    </div>
+    <div class="form-group">
+        <label for="phone">Phone number</label>
+        <input type="text" class="form-control" id="phone" name="phone" value="{{member.phone}}" />
+    </div>
+    <div class="form-group">
+        <label for="mobile_phone">Mobile Phone number</label>
+        <input type="text" class="form-control" id="mobile_phone" name="mobile_phone"
+            value="{{member.mobile_phone}}" />
+    </div>
+    <div class="form-group">
+        <label for="positive_date">Positive date (optional)</label>
+        <input type="date" class="form-control" id="positive_date" name="positive_date"
+        value="{{corona_ditails.positive_date}}" />
+    </div>
+    <div class="form-group">
+        <label for="recovery_date">Recovery date (optional)</label>
+        <input type="date" class="form-control" id="recovery_date" name="recovery_date"
+        value="{{corona_ditails.recovery_date}}" />
+    </div>
+    <div class="form-group">
+        <label for="first_vaccin_date">First vaccin date (optional)</label>
+        <input type="date" class="form-control" id="first_vaccin_date" name="first_vaccin_date"
+        value="{{first.vaccin_date}}" />
+    </div>
+    <div class="form-group">
+        <label for="first_manufacturer">First vaccin manufacturer (optional)</label>
+        <input type="text" class="form-control" id="first_manufacturer" name="first_manufacturer"
+        value="{{first.manufacturer}}" />
+    </div>
+    <div class="form-group">
+        <label for="second_vaccin_date">Second vaccin date (optional)</label>
+        <input type="date" class="form-control" id="second_vaccin_date" name="second_vaccin_date"
+        value="{{second.vaccin_date}}" />
+    </div>
+    <div class="form-group">
+        <label for="second_manufacturer">Second vaccin manufacturer (optional)</label>
+        <input type="text" class="form-control" id="second_manufacturer" name="second_manufacturer"
+        value="{{second.manufacturer}}" />
+    </div>
+    <div class="form-group">
+        <label for="third_vaccin_date">Third vaccin date (optional)</label>
+        <input type="date" class="form-control" id="third_vaccin_date" name="third_vaccin_date"
+        value="{{third.vaccin_date}}" />
+    </div>
+    <div class="form-group">
+        <label for="third_manufacturer">Third vaccin manufacturer (optional)</label>
+        <input type="text" class="form-control" id="third_manufacturer" name="third_manufacturer"
+        value="{{third.manufacturer}}" />
+    </div>
+    <div class="form-group">
+        <label for="forth_vaccin_date">Forth vaccin date (optional)</label>
+        <input type="date" class="form-control" id="forth_vaccin_date" name="forth_vaccin_date"
+        value="{{forth.vaccin_date}}" />
+    </div>
+    <div class="form-group">
+        <label for="forth_manufacturer">Forth vaccin manufacturer (optional)</label>
+        <input type="text" class="form-control" id="forth_manufacturer" name="forth_manufacturer"
+        value="{{forth.manufacturer}}" />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Update ditails</button>
+</form>
+
+{% endblock %}

@@ -1,15 +1,16 @@
 {% extends "base.html" %}
 {% block title %}Members{% endblock %}
 
-
-
 {% block content %}
 <head>
     <title>Members</title>
 </head>
 <body>
-    <h1>Members</h1>
-    <table class='table table-bordered table-condensed table-striped table-hover'>
+    <br/>
+    <h2>Members
+        <button onclick="redirectToAddMember()" type="submit" class="btn btn-primary float-right">Add member</button>
+    </h2>
+    <table id="members_table" class='table table-bordered table-condensed table-striped table-hover'>
         <thead>
             <tr>
                 <th>Full name</th>
@@ -18,26 +19,47 @@
                 <th>Birth date</th>
                 <th>Phone</th>
                 <th>Mobile phone</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
             {% for member in all_members %}
-            <tr ondblclick="redirectToCard()">
+            <tr>
                 <td>{{ member.full_name }}</td>
-                <td>{{ member.id }}</td>
+                <td id="id">{{ member.id }}</td>
                 <td>{{ member.address }}</td>
                 <td>{{ member.date }}</td>
                 <td>{{ member.phone }}</td>
                 <td>{{ member.mobile_phone }}</td>
+                <td>
+                <button type="button" class="close" onclick="deleteMenber('{{member.id}}')">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <button type="submit" class="btn btn-primary" onclick="redirectToCard('{{member.id}}')">Update</button>
+                </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 <script>
-    function redirectToCard() {
-        window.location.href = '/card';
+    function redirectToCard(id) {
+        window.location.href = `/member/card?id=${id}`;
     }
 </script>
+<script>
+    function redirectToAddMember() {
+        window.location.href = '/member/create';
+    }
+</script>
+<script>
+    function deleteMenber(id) {
+        window.location.href = `/member/delete-member?id=${id}`;
+    }
+</script>
+
 {% endblock %}
 

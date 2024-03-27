@@ -11,11 +11,9 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}' #My SQLalchemy database is stored at this location
     db.init_app(app) #Initialize the database
 
-    from .views import views #Import the Blueprint views
-    from .auth import auth #Import the Blueprint views
+    from .member import member #Import the Blueprint member
 
-    app.register_blueprint(views, url_prefix = '/') #Register the Blueprint views
-    app.register_blueprint(auth, url_prefix = '/') #Register the Blueprint auth
+    app.register_blueprint(member, url_prefix = '/member') #Register the Blueprint member
     #url_prefix = '/' meaning that the prefix off all the blueprints would be '/'
 
     from .models import Member, Corona, Vaccination
