@@ -32,7 +32,7 @@
                 <td>{{ member.date }}</td>
                 <td>{{ member.phone }}</td>
                 <td>{{ member.mobile_phone }}</td>
-                <td><img src="{{member.img}}" alt="Image"/></td>
+                <td><img src="{{ url_for('static', filename='upload/'+member.img) }}" alt="Image" width="100" height="50"/></td>
                 <td>
                 <button type="button" class="close" onclick="deleteMenber('{{member.id}}')">
                     <span aria-hidden="true">&times;</span>

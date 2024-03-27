@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<form method="POST">
+<form method="POST"  action="/member/card" enctype="multipart/form-data">
     <h3 align="center">Card member</h3>
     <div class="form-group">
         <label for="full_name">Full name</label>
@@ -81,14 +81,13 @@
         value="{{forth.manufacturer}}" />
     </div>
     <div class="form-group">
-       <img src="{{member.img}}" alt="Image"/>
+        <label for="profileImg">Profile img</label>
+        <br/>
+        <input type="file" class="form-control-file" name="file" autocomplete="off"/>
     </div>
-    <div class="form-group">
-        
-        <input type="file" class="form-control-file" name="file" autocomplete="off" required/>
-     </div>
     <br />
     <button type="submit" class="btn btn-primary">Update ditails</button>
+    <br />
 </form>
 
 {% endblock %}
