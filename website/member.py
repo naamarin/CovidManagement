@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, flash, redirect, url_for
+from flask import Blueprint, render_template, request, flash, redirect
 from . import db
 from .models import Member, Corona, Vaccination
 import re
@@ -47,10 +47,9 @@ def addMember():
         else:
             file = request.files['file']
             if file.filename != '' and file and allowed_file(file.filename):
-                filename= secure_filename(file.filename)
+                filename = secure_filename(file.filename)
                 img_name = id + '.' + filename.rsplit('.', 1)[1].lower()
-                file.save(os.path.join('C:/Users/Naama/Desktop/Corona management system for HMO/website/static/upload/', img_name))
-                #img_path = 'C:/Users/Naama/Desktop/Corona management system for HMO/website/static/upload/' + filename
+                file.save(os.path.join(os.getcwd(), 'website/static/upload', img_name))
                 new_member = Member(full_name=full_name, id=id, address=address, date=date, phone=phone, mobile_phone=mobile_phone, img=img_name)
                 db.session.add(new_member)
 
@@ -104,7 +103,7 @@ def card():
                     if os.path.exists(previous_img_path):
                         os.remove(previous_img_path)
                     img_name = id + '.' + filename.rsplit('.', 1)[1].lower()
-                    file.save(os.path.join('C:/Users/Naama/Desktop/Corona management system for HMO/website/static/upload/', img_name))
+                    file.save(os.path.join(os.getcwd(), 'website/static/upload', img_name))
 
             corona = Corona.query.get(id)
 

@@ -14,8 +14,9 @@ def create_app():
     db.init_app(app) #Initialize the database
 
     from .member import member #Import the Blueprint member
-
+    from .short_cut import short_cut
     app.register_blueprint(member, url_prefix = '/member') #Register the Blueprint member
+    app.register_blueprint(short_cut, url_prefix='/')
     #url_prefix = '/' meaning that the prefix off all the blueprints would be '/'
 
     from .models import Member, Corona, Vaccination
@@ -24,3 +25,4 @@ def create_app():
         db.create_all()
     
     return app
+
