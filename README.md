@@ -1,6 +1,7 @@
 # CovidManagement
 
-Required installations are in the requirements.txt file
+Required installations are in the requirements.txt file:
+pip install -r requirements.txt
 
 First, we will run the program and enter the browser and register: http://127.0.0.1:5000
 
