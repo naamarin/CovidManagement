@@ -3,7 +3,7 @@
 Required installations are in the requirements.txt file:
 pip install -r requirements.txt
 
-To run the server, go to main.py, press Ctrl + Shift + P and select the "Run python file in terminal" option.
+To run the server, go to main.py, and run it using the command "python main.py" or "python3 main.py".
 now enter the browser and register: http://127.0.0.1:5000/.
 
 Upon entering the system, you will receive a list of all members of the HMO.
