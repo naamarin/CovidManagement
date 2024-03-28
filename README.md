@@ -3,7 +3,8 @@
 Required installations are in the requirements.txt file:
 pip install -r requirements.txt
 
-First, we will run the program and enter the browser and register: http://127.0.0.1:5000
+To run the server, go to main.py, press Ctrl + Shift + P and select the "Run python file in terminal" option.
+now enter the browser and register: http://127.0.0.1:5000/.
 
 Upon entering the system, you will receive a list of all members of the HMO.
 ![image](https://github.com/naamarin/CovidManagement/assets/80171546/2fd733d8-98bb-4b38-be39-90415d95adf8)
